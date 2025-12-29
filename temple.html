@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>SATORI | The Golden Sanctuary</title>
+    <meta name="description" content="A luxury spiritual sanctuary in Kyoto. Experience silence, meditation, and the ancient art of tea in a space designed for the modern soul.">
+    <meta name="keywords" content="meditation, retreat, kyoto, luxury, zen, architecture, mindfulness">
+    <meta name="author" content="Satori Temple">
+    <meta name="theme-color" content="#CA5116">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://satori.com/">
+    <meta property="og:title" content="SATORI | The Golden Sanctuary">
+    <meta property="og:description" content="Awaken the spirit. A luxury retreat for mindfulness and silence.">
+    <meta property="og:image" content="assets/hero-bg.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://satori.com/">
+    <meta property="twitter:title" content="SATORI | The Golden Sanctuary">
+    <meta property="twitter:description" content="Awaken the spirit. A luxury retreat for mindfulness and silence.">
+    <meta property="twitter:image" content="assets/hero-bg.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛩️</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'satori-bg': '#FFFAF5',       
+                        'satori-text': '#431407',     
+                        'satori-orange': '#CA5116',   
+                        'satori-sand': '#E8E1D9',     
+                    },
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        display: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #FFFAF5;
+            color: #431407;
+            overflow-x: hidden;
+        }
+        
+        /* Grain Texture */
+        .paper-texture {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.35;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FFFAF5; }
+        ::-webkit-scrollbar-thumb { background: #CA5116; }
+
+        /* Arch Mask */
+        .arch-mask { border-radius: 300px 300px 0 0; }
+        
+        /* Circle Mask for New Section */
+        .circle-mask { border-radius: 50%; }
+    </style>
+</head>
+<body class="antialiased selection:bg-satori-orange selection:text-white">
+
+    <div class="paper-texture"></div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-satori-bg/90 backdrop-blur-md border-b border-satori-text/5 transform translate-y-0" id="navbar">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                
+                <a href="#" class="text-3xl font-display font-bold tracking-widest text-satori-orange hover:text-satori-text transition-colors">
+                    SATORI
+                </a>
+
+                <div class="hidden lg:flex gap-10 text-[11px] font-bold tracking-[0.25em] uppercase text-satori-text">
+                    <a href="#philosophy" class="hover:text-satori-orange transition-colors relative group">Philosophy</a>
+                    <a href="#architecture" class="hover:text-satori-orange transition-colors relative group">Architecture</a>
+                    <a href="#journal" class="hover:text-satori-orange transition-colors relative group">Journal</a>
+                    <a href="#temple" class="hover:text-satori-orange transition-colors relative group">Temple</a>
+                    <a href="#visit" class="hover:text-satori-orange transition-colors relative group">Visit</a>
+                </div>
+
+                <a href="#visit" class="hidden md:block border border-satori-text px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-satori-orange hover:border-satori-orange hover:text-white transition-all duration-300">
+                    Book Session
+                </a>
+
+                <button class="md:hidden text-2xl text-satori-text" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero-bg.png" 
+                 class="w-full h-full object-cover brightness-110" 
+                 alt="Kyoto Bamboo Forest Sunlight"
+                 id="hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-b from-satori-bg/20 via-satori-orange/5 to-satori-bg"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6">
+            <div class="overflow-hidden mb-6">
+                <p class="text-satori-text font-bold tracking-[0.4em] uppercase text-xs animate-up opacity-0">Sanctuary of Light</p>
+            </div>
+            <h1 class="text-6xl md:text-[9rem] font-display font-semibold leading-[0.85] text-satori-text mb-8">
+                <div class="overflow-hidden"><span class="block translate-y-full hero-title">Awaken</span></div>
+                <div class="overflow-hidden"><span class="block translate-y-full hero-title text-satori-orange italic">The Spirit</span></div>
+            </h1>
+            <div class="animate-up opacity-0 translate-y-10">
+                <a href="#philosophy" class="inline-block mt-8 w-14 h-14 rounded-full border border-satori-text/30 flex items-center justify-center text-satori-text hover:bg-satori-orange hover:text-white hover:border-satori-orange transition-all duration-500">
+                    <i class="fas fa-arrow-down animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="philosophy" class="py-32 px-6 container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5 sticky top-32">
+                <h2 class="text-5xl md:text-7xl font-serif text-satori-text leading-none mb-8 reveal-text">
+                    Stillness <br> <span class="text-satori-orange italic">in motion.</span>
+                </h2>
+                <div class="w-24 h-[2px] bg-satori-orange reveal-line"></div>
+            </div>
+
+            <div class="md:col-span-7 space-y-16">
+                <p class="text-xl md:text-2xl font-serif leading-relaxed text-satori-text/80 reveal-text">
+                    SATORI is not just a place; it is a state of being. We provide a sacred space for modern souls to disconnect from the noise and reconnect with their essence.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="reveal-card p-8 bg-white border border-satori-text/5 shadow-sm hover:shadow-lg transition-shadow duration-500">
+                        <i class="fas fa-wind text-3xl text-satori-orange mb-4"></i>
+                        <h3 class="font-bold uppercase tracking-widest text-xs mb-2">Breathwork</h3>
+                        <p class="text-sm text-gray-500">Ancient techniques to regulate the nervous system.</p>
+                    </div>
+                    <div class="reveal-card p-8 bg-white border border-satori-text/5 shadow-sm hover:shadow-lg transition-shadow duration-500">
+                        <i class="fas fa-fire text-3xl text-satori-orange mb-4"></i>
+                        <h3 class="font-bold uppercase tracking-widest text-xs mb-2">Rituals</h3>
+                        <p class="text-sm text-gray-500">Daily ceremonies to honor the passing of time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="bg-satori-sand py-40 overflow-hidden relative">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="relative h-[700px] w-full arch-mask overflow-hidden shadow-2xl reveal-arch">
+                    <img src="assets/architecture-detail.png" class="w-full h-full object-cover sepia-[.15]" loading="lazy" alt="Temple Architecture">
+                </div>
+                <div class="space-y-16">
+                     <h2 class="text-6xl font-serif text-satori-text">Sacred <span class="italic text-satori-orange">Geometry</span></h2>
+                     <div class="space-y-10">
+                        <div class="group cursor-pointer border-b border-satori-text/10 pb-8">
+                            <h3 class="text-3xl font-display text-satori-text group-hover:text-satori-orange transition-colors">The Dome</h3>
+                            <p class="mt-4 text-satori-text/60 font-serif text-lg">A ceiling constructed to mimic the heavens, guiding the eye upward.</p>
+                        </div>
+                        <div class="group cursor-pointer border-b border-satori-text/10 pb-8">
+                            <h3 class="text-3xl font-display text-satori-text group-hover:text-satori-orange transition-colors">The Pillars</h3>
+                            <p class="mt-4 text-satori-text/60 font-serif text-lg">Strength derived from ancient cedar, standing for over 400 years.</p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="journal" class="py-40 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-24">
+                <h2 class="text-5xl md:text-7xl font-serif text-satori-text leading-[0.9]">
+                    The Art <br> <span class="italic text-satori-orange">of Tea</span>
+                </h2>
+                <div class="md:text-right mt-8 md:mt-0">
+                    <p class="text-xs font-bold uppercase tracking-widest text-satori-orange mb-2">Chadō (The Way of Tea)</p>
+                    <p class="text-satori-text/50 max-w-xs text-sm">A practice of harmony, respect, purity, and tranquility.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                <div class="md:col-span-7 relative">
+                    <div class="overflow-hidden h-[600px] reveal-card">
+                        <img src="assets/tea-ceremony.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105" loading="lazy" alt="Tea Ceremony Detail">
+                    </div>
+                </div>
+
+                <div class="md:col-span-5 md:-ml-20 z-10 relative mt-8 md:mt-0">
+                    <div class="bg-satori-bg p-12 shadow-2xl border-l-4 border-satori-orange reveal-card" data-lag="0.2">
+                        <span class="text-6xl text-satori-text/10 font-display absolute top-4 right-4">01</span>
+                        <h3 class="text-3xl font-serif text-satori-text mb-6">Ceremonial Grade</h3>
+                        <p class="text-gray-600 mb-8 font-serif leading-relaxed">
+                            "One time, one meeting." The philosophy that every tea gathering is a unique occurrence that will never repeat. We serve only the finest ceremonial matcha, ground daily.
+                        </p>
+                        <a href="#" class="inline-flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-satori-orange hover:gap-6 transition-all">
+                            Read Journal <i class="fas fa-long-arrow-alt-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="temple" class="bg-satori-text text-satori-bg py-40 relative">
+        <div class="container mx-auto px-6">
+            <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8">
+                <div>
+                    <span class="text-satori-orange text-xs font-bold tracking-widest uppercase block mb-4">The Grounds</span>
+                    <h2 class="text-5xl font-serif">Sacred Spaces</h2>
+                </div>
+                <p class="text-white/40 text-sm max-w-xs mt-4 md:mt-0">
+                    Hover over the locations to explore the sanctuary.
+                </p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-20 items-start">
+                <div class="hidden lg:block w-1/2 sticky top-32 h-[600px] rounded-t-full overflow-hidden border border-white/10 shadow-2xl">
+                    <div class="temple-image absolute inset-0 opacity-100 transition-opacity duration-700" id="img-1">
+                        <img src="assets/temple-main.png" class="w-full h-full object-cover sepia-[.3]" alt="Main Hall">
+                        <div class="absolute bottom-0 left-0 w-full p-10 bg-gradient-to-t from-black/90 to-transparent">
+                            <p class="font-serif italic text-3xl text-white">The Main Hall</p>
+                        </div>
+                    </div>
+                    <div class="temple-image absolute inset-0 opacity-0 transition-opacity duration-700" id="img-2">
+                        <img src="assets/zen-garden.png" class="w-full h-full object-cover sepia-[.3]" alt="Zen Gardens">
+                        <div class="absolute bottom-0 left-0 w-full p-10 bg-gradient-to-t from-black/90 to-transparent">
+                            <p class="font-serif italic text-3xl text-white">Zen Rock Gardens</p>
+                        </div>
+                    </div>
+                    <div class="temple-image absolute inset-0 opacity-0 transition-opacity duration-700" id="img-3">
+                        <img src="assets/dojo-interior.png" class="w-full h-full object-cover sepia-[.3]" alt="The Dojo">
+                        <div class="absolute bottom-0 left-0 w-full p-10 bg-gradient-to-t from-black/90 to-transparent">
+                            <p class="font-serif italic text-3xl text-white">Meditation Dojo</p>
+                        </div>
+                    </div>
+                    <div class="temple-image absolute inset-0 opacity-0 transition-opacity duration-700" id="img-4">
+                        <img src="assets/tea-house.png" class="w-full h-full object-cover sepia-[.3]" alt="Tea House">
+                        <div class="absolute bottom-0 left-0 w-full p-10 bg-gradient-to-t from-black/90 to-transparent">
+                            <p class="font-serif italic text-3xl text-white">The Tea House</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 flex flex-col">
+                    <div class="temple-item group py-12 border-b border-white/10 cursor-pointer relative" onmouseenter="changeImage(1)">
+                        <div class="flex items-baseline justify-between relative z-10">
+                            <h3 class="text-4xl md:text-5xl font-serif text-white/50 group-hover:text-white transition-colors duration-500 group-hover:translate-x-4 transform">Main Hall</h3>
+                            <span class="text-xs font-bold text-satori-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500">01</span>
+                        </div>
+                        <p class="mt-4 text-white/30 max-w-md group-hover:text-white/60 transition-colors duration-500 group-hover:translate-x-4">
+                            The heart of Satori. A vast wooden structure built without nails.
+                        </p>
+                    </div>
+                    <div class="temple-item group py-12 border-b border-white/10 cursor-pointer relative" onmouseenter="changeImage(2)">
+                        <div class="flex items-baseline justify-between relative z-10">
+                            <h3 class="text-4xl md:text-5xl font-serif text-white/50 group-hover:text-white transition-colors duration-500 group-hover:translate-x-4 transform">Zen Gardens</h3>
+                            <span class="text-xs font-bold text-satori-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500">02</span>
+                        </div>
+                        <p class="mt-4 text-white/30 max-w-md group-hover:text-white/60 transition-colors duration-500 group-hover:translate-x-4">
+                            Raked gravel and moss-covered stones.
+                        </p>
+                    </div>
+                    <div class="temple-item group py-12 border-b border-white/10 cursor-pointer relative" onmouseenter="changeImage(3)">
+                        <div class="flex items-baseline justify-between relative z-10">
+                            <h3 class="text-4xl md:text-5xl font-serif text-white/50 group-hover:text-white transition-colors duration-500 group-hover:translate-x-4 transform">The Dojo</h3>
+                            <span class="text-xs font-bold text-satori-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500">03</span>
+                        </div>
+                        <p class="mt-4 text-white/30 max-w-md group-hover:text-white/60 transition-colors duration-500 group-hover:translate-x-4">
+                            The hall of practice. Simple tatami mats and incense smoke.
+                        </p>
+                    </div>
+                    <div class="temple-item group py-12 border-b border-white/10 cursor-pointer relative" onmouseenter="changeImage(4)">
+                        <div class="flex items-baseline justify-between relative z-10">
+                            <h3 class="text-4xl md:text-5xl font-serif text-white/50 group-hover:text-white transition-colors duration-500 group-hover:translate-x-4 transform">Tea House</h3>
+                            <span class="text-xs font-bold text-satori-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500">04</span>
+                        </div>
+                        <p class="mt-4 text-white/30 max-w-md group-hover:text-white/60 transition-colors duration-500 group-hover:translate-x-4">
+                            A small hut dedicated to the ritual of tea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative h-[120vh] overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 z-0 bg-satori-text">
+            <img src="assets/misty-mountains.png" 
+                 class="w-full h-[130%] object-cover opacity-30 grayscale parallax-bg" 
+                 alt="Misty Mountains"
+                 style="transform: translateY(0);">
+        </div>
+        
+        <div class="relative z-10 text-center px-6 max-w-5xl mix-blend-screen">
+            <p class="text-satori-orange font-bold tracking-[0.4em] uppercase text-xs mb-8">Wabi Sabi</p>
+            <h2 class="text-5xl md:text-8xl font-serif text-white leading-tight">
+                "Nothing lasts,<br> nothing is finished,<br> nothing is perfect."
+            </h2>
+            <div class="mt-12 flex justify-center">
+                <div class="w-[1px] h-32 bg-gradient-to-b from-satori-orange to-transparent"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="offerings" class="py-32 px-6 bg-satori-bg container mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-20">
+            <h2 class="text-4xl md:text-5xl font-serif text-satori-text mb-6">Paths to Enlightenment</h2>
+            <p class="text-gray-500 font-serif">Curated experiences designed to guide you back to your center.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="group border border-satori-text/10 p-10 hover:border-satori-orange transition-all duration-500 bg-white hover:-translate-y-2">
+                <div class="text-satori-orange text-5xl mb-8 font-display">01</div>
+                <h3 class="text-2xl font-serif font-bold mb-4 text-satori-text">Silent Retreat</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-8">
+                    3 days of absolute silence. Disconnect from technology and reconnect with your inner voice.
+                </p>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:text-satori-orange transition-colors">
+                    Learn More <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="group border border-satori-text/10 p-10 hover:border-satori-orange transition-all duration-500 bg-white hover:-translate-y-2">
+                <div class="text-satori-orange text-5xl mb-8 font-display">02</div>
+                <h3 class="text-2xl font-serif font-bold mb-4 text-satori-text">Tea Ceremony</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-8">
+                    The art of Chadō. Learn patience, precision, and presence through the ritual of tea.
+                </p>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:text-satori-orange transition-colors">
+                    Learn More <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="group border border-satori-text/10 p-10 hover:border-satori-orange transition-all duration-500 bg-white hover:-translate-y-2">
+                <div class="text-satori-orange text-5xl mb-8 font-display">03</div>
+                <h3 class="text-2xl font-serif font-bold mb-4 text-satori-text">Morning Dharma</h3>
+                <p class="text-sm text-gray-500 leading-relaxed mb-8">
+                    Sunrise teachings from our resident monks. Philosophy applied to modern life.
+                </p>
+                <a href="#" class="text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:text-satori-orange transition-colors">
+                    Learn More <i class="fas fa-arrow-right text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-satori-text">
+        <div class="absolute inset-0">
+            <img src="assets/water-texture.png" class="w-full h-full object-cover opacity-20 sepia" alt="Calm Water" id="quote-bg">
+        </div>
+        <div class="relative z-10 text-center px-6 max-w-4xl">
+            <i class="fas fa-quote-left text-satori-orange text-4xl mb-8 block opacity-80"></i>
+            <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight mb-8 quote-text translate-y-10 opacity-0">
+                "The mind is like water. When it is turbulent, it is difficult to see. When it is calm, everything becomes clear."
+            </h2>
+            <p class="text-satori-orange uppercase tracking-[0.2em] text-sm quote-text translate-y-10 opacity-0">— Lao Tzu</p>
+        </div>
+    </section>
+
+    <section id="visit" class="py-32 px-6 container mx-auto">
+        <div class="bg-satori-orange rounded-3xl p-12 md:p-24 shadow-2xl relative overflow-hidden">
+             <div class="absolute -right-20 -top-20 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl"></div>
+
+            <div class="flex flex-col md:flex-row gap-20 relative z-10">
+                <div class="md:w-1/2 text-white">
+                    <h2 class="text-5xl font-serif mb-8">Begin Your Journey</h2>
+                    <p class="text-white/80 mb-12 max-w-md text-lg font-serif">
+                        Our gates are open to all seekers. Whether for an hour or a week, find your sanctuary here.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-6">
+                            <i class="fas fa-map-marker-alt mt-1 opacity-60"></i>
+                            <div>
+                                <span class="block text-xs font-bold uppercase tracking-widest text-white/60 mb-2">Location</span>
+                                <p class="text-xl font-serif">108 Mountain Path, Kyoto Prefecture</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <i class="fas fa-envelope mt-1 opacity-60"></i>
+                            <div>
+                                <span class="block text-xs font-bold uppercase tracking-widest text-white/60 mb-2">Inquiries</span>
+                                <p class="text-xl font-serif">peace@satori-temple.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 bg-white p-12 shadow-lg rounded-xl">
+                    <form class="space-y-8">
+                        <div class="relative group">
+                            <input type="text" class="w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-satori-orange transition-colors text-satori-text placeholder-transparent" id="name" placeholder="Name">
+                            <label for="name" class="absolute left-0 top-4 text-gray-400 text-xs uppercase tracking-widest pointer-events-none transition-all duration-300 group-focus-within:-translate-y-5 group-focus-within:text-[10px] group-focus-within:text-satori-orange">Name</label>
+                        </div>
+                        <div class="relative group">
+                            <input type="email" class="w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-satori-orange transition-colors text-satori-text placeholder-transparent" id="email" placeholder="Email">
+                            <label for="email" class="absolute left-0 top-4 text-gray-400 text-xs uppercase tracking-widest pointer-events-none transition-all duration-300 group-focus-within:-translate-y-5 group-focus-within:text-[10px] group-focus-within:text-satori-orange">Email</label>
+                        </div>
+                        <div class="relative group">
+                            <textarea rows="2" class="w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-satori-orange transition-colors text-satori-text placeholder-transparent" id="msg" placeholder="Message"></textarea>
+                            <label for="msg" class="absolute left-0 top-4 text-gray-400 text-xs uppercase tracking-widest pointer-events-none transition-all duration-300 group-focus-within:-translate-y-5 group-focus-within:text-[10px] group-focus-within:text-satori-orange">Intention</label>
+                        </div>
+                        <button type="button" class="w-full bg-satori-text text-white py-5 text-xs font-bold uppercase tracking-widest hover:bg-satori-orange transition-colors duration-500">
+                            Send Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-satori-text text-white py-20 px-6 border-t border-satori-orange">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-4xl font-display font-bold tracking-widest text-satori-orange">SATORI</div>
+            <div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="hover:text-white transition-colors">Maps</a>
+            </div>
+            <div class="text-[10px] text-white/30 uppercase tracking-widest">
+                &copy; 2025 Satori Temple.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Hero Animations
+        const tl = gsap.timeline();
+        tl.to(".animate-up", { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" })
+          .to(".hero-title", { y: 0, duration: 1.5, stagger: 0.1, ease: "power4.out" }, "-=0.8");
+
+        // 2. Text Reveals
+        gsap.utils.toArray('.reveal-text').forEach(text => {
+            gsap.from(text, {
+                scrollTrigger: { trigger: text, start: "top 85%" },
+                y: 50, opacity: 0, duration: 1, ease: "power3.out"
+            });
+        });
+
+        // 3. Card Reveals (Staggered)
+        gsap.utils.toArray('.reveal-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: "top 80%" },
+                y: 60, opacity: 0, duration: 1.2, ease: "power3.out", delay: i * 0.1
+            });
+        });
+
+        // 4. Arch Section Reveal
+         gsap.from(".reveal-arch", {
+            scrollTrigger: { trigger: "#architecture", start: "top 70%" },
+            y: 100, opacity: 0, duration: 1.5, ease: "power3.out"
+        });
+
+        // 5. Parallax Backgrounds
+        gsap.to(".parallax-bg", {
+            yPercent: 20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".parallax-bg",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // 6. Quote Animation
+        gsap.to(".quote-text", {
+            scrollTrigger: { trigger: ".quote-text", start: "top 75%" },
+            y: 0, opacity: 1, stagger: 0.2, duration: 1.5, ease: "power4.out"
+        });
+
+        // 7. Image Swap Logic (Interactive Temple Section)
+        function changeImage(index) {
+            const images = document.querySelectorAll('.temple-image');
+            images.forEach(img => {
+                img.classList.remove('opacity-100');
+                img.classList.add('opacity-0');
+            });
+            const selectedImage = document.getElementById(`img-${index}`);
+            if (selectedImage) {
+                selectedImage.classList.remove('opacity-0');
+                selectedImage.classList.add('opacity-100');
+            }
+        }
+
+        // Form Interactions (Input animations)
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            // Check if has value on load
+            if(input.value !== "") {
+                input.nextElementSibling.classList.add('-translate-y-5', 'text-[10px]', 'text-satori-orange');
+            }
+            
+            input.addEventListener('input', () => {
+                if(input.value !== "") {
+                    input.nextElementSibling.classList.add('-translate-y-5', 'text-[10px]', 'text-satori-orange');
+                } else {
+                    input.nextElementSibling.classList.remove('-translate-y-5', 'text-[10px]', 'text-satori-orange');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
