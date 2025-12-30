@@ -78,11 +78,30 @@
         
         /* Circle Mask for New Section */
         .circle-mask { border-radius: 50%; }
+
+        /* Mobile Menu Transitions */
+        .mobile-menu-enter { transform: translateX(100%); }
+        .mobile-menu-active { transform: translateX(0); }
     </style>
 </head>
 <body class="antialiased selection:bg-satori-orange selection:text-white">
 
     <div class="paper-texture"></div>
+
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-satori-bg transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-center items-center">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-satori-text hover:text-satori-orange transition-colors">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col gap-8 text-center">
+            <a href="#philosophy" class="mobile-link text-3xl font-serif text-satori-text hover:text-satori-orange transition-colors">Philosophy</a>
+            <a href="#architecture" class="mobile-link text-3xl font-serif text-satori-text hover:text-satori-orange transition-colors">Architecture</a>
+            <a href="#journal" class="mobile-link text-3xl font-serif text-satori-text hover:text-satori-orange transition-colors">Journal</a>
+            <a href="#temple" class="mobile-link text-3xl font-serif text-satori-text hover:text-satori-orange transition-colors">The Temple</a>
+            <a href="#visit" class="mobile-link text-3xl font-serif text-satori-text hover:text-satori-orange transition-colors">Visit</a>
+            <div class="w-12 h-[1px] bg-satori-orange mx-auto mt-4"></div>
+            <a href="#visit" class="text-xs font-bold uppercase tracking-widest text-satori-text hover:text-satori-orange">Book Session</a>
+        </div>
+    </div>
 
     <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-satori-bg/90 backdrop-blur-md border-b border-satori-text/5 transform translate-y-0" id="navbar">
         <div class="container mx-auto px-6 py-6">
@@ -100,11 +119,11 @@
                     <a href="#visit" class="hover:text-satori-orange transition-colors relative group">Visit</a>
                 </div>
 
-                <a href="#visit" class="hidden md:block border border-satori-text px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-satori-orange hover:border-satori-orange hover:text-white transition-all duration-300">
+                <a href="#visit" class="hidden lg:block border border-satori-text px-8 py-3 text-[10px] font-bold uppercase tracking-widest hover:bg-satori-orange hover:border-satori-orange hover:text-white transition-all duration-300">
                     Book Session
                 </a>
 
-                <button class="md:hidden text-2xl text-satori-text" aria-label="Menu">
+                <button id="open-menu-btn" class="lg:hidden text-2xl text-satori-text hover:text-satori-orange transition-colors" aria-label="Menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -124,7 +143,7 @@
             <div class="overflow-hidden mb-6">
                 <p class="text-satori-text font-bold tracking-[0.4em] uppercase text-xs animate-up opacity-0">Sanctuary of Light</p>
             </div>
-            <h1 class="text-6xl md:text-[9rem] font-display font-semibold leading-[0.85] text-satori-text mb-8">
+            <h1 class="text-5xl md:text-7xl lg:text-[9rem] font-display font-semibold leading-[1.1] md:leading-[0.85] text-satori-text mb-8">
                 <div class="overflow-hidden"><span class="block translate-y-full hero-title">Awaken</span></div>
                 <div class="overflow-hidden"><span class="block translate-y-full hero-title text-satori-orange italic">The Spirit</span></div>
             </h1>
@@ -166,14 +185,14 @@
         </div>
     </section>
 
-    <section id="architecture" class="bg-satori-sand py-40 overflow-hidden relative">
+    <section id="architecture" class="bg-satori-sand py-32 md:py-40 overflow-hidden relative">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="relative h-[700px] w-full arch-mask overflow-hidden shadow-2xl reveal-arch">
+                <div class="relative h-[500px] lg:h-[700px] w-full arch-mask overflow-hidden shadow-2xl reveal-arch">
                     <img src="assets/architecture-detail.png" class="w-full h-full object-cover sepia-[.15]" loading="lazy" alt="Temple Architecture">
                 </div>
                 <div class="space-y-16">
-                     <h2 class="text-6xl font-serif text-satori-text">Sacred <span class="italic text-satori-orange">Geometry</span></h2>
+                     <h2 class="text-5xl md:text-6xl font-serif text-satori-text">Sacred <span class="italic text-satori-orange">Geometry</span></h2>
                      <div class="space-y-10">
                         <div class="group cursor-pointer border-b border-satori-text/10 pb-8">
                             <h3 class="text-3xl font-display text-satori-text group-hover:text-satori-orange transition-colors">The Dome</h3>
@@ -189,7 +208,7 @@
         </div>
     </section>
 
-    <section id="journal" class="py-40 bg-white relative overflow-hidden">
+    <section id="journal" class="py-32 md:py-40 bg-white relative overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-24">
                 <h2 class="text-5xl md:text-7xl font-serif text-satori-text leading-[0.9]">
@@ -203,13 +222,13 @@
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div class="md:col-span-7 relative">
-                    <div class="overflow-hidden h-[600px] reveal-card">
+                    <div class="overflow-hidden h-[400px] md:h-[600px] reveal-card">
                         <img src="assets/tea-ceremony.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 transform hover:scale-105" loading="lazy" alt="Tea Ceremony Detail">
                     </div>
                 </div>
 
                 <div class="md:col-span-5 md:-ml-20 z-10 relative mt-8 md:mt-0">
-                    <div class="bg-satori-bg p-12 shadow-2xl border-l-4 border-satori-orange reveal-card" data-lag="0.2">
+                    <div class="bg-satori-bg p-8 md:p-12 shadow-2xl border-l-4 border-satori-orange reveal-card" data-lag="0.2">
                         <span class="text-6xl text-satori-text/10 font-display absolute top-4 right-4">01</span>
                         <h3 class="text-3xl font-serif text-satori-text mb-6">Ceremonial Grade</h3>
                         <p class="text-gray-600 mb-8 font-serif leading-relaxed">
@@ -224,7 +243,7 @@
         </div>
     </section>
 
-    <section id="temple" class="bg-satori-text text-satori-bg py-40 relative">
+    <section id="temple" class="bg-satori-text text-satori-bg py-32 md:py-40 relative">
         <div class="container mx-auto px-6">
             <div class="mb-24 flex flex-col md:flex-row md:items-end justify-between border-b border-white/10 pb-8">
                 <div>
@@ -306,7 +325,7 @@
         </div>
     </section>
 
-    <section class="relative h-[120vh] overflow-hidden flex items-center justify-center">
+    <section class="relative h-[80vh] md:h-[120vh] overflow-hidden flex items-center justify-center">
         <div class="absolute inset-0 z-0 bg-satori-text">
             <img src="assets/misty-mountains.png" 
                  class="w-full h-[130%] object-cover opacity-30 grayscale parallax-bg" 
@@ -316,7 +335,7 @@
         
         <div class="relative z-10 text-center px-6 max-w-5xl mix-blend-screen">
             <p class="text-satori-orange font-bold tracking-[0.4em] uppercase text-xs mb-8">Wabi Sabi</p>
-            <h2 class="text-5xl md:text-8xl font-serif text-white leading-tight">
+            <h2 class="text-4xl md:text-8xl font-serif text-white leading-tight">
                 "Nothing lasts,<br> nothing is finished,<br> nothing is perfect."
             </h2>
             <div class="mt-12 flex justify-center">
@@ -373,7 +392,7 @@
         </div>
         <div class="relative z-10 text-center px-6 max-w-4xl">
             <i class="fas fa-quote-left text-satori-orange text-4xl mb-8 block opacity-80"></i>
-            <h2 class="text-4xl md:text-6xl font-serif text-white leading-tight mb-8 quote-text translate-y-10 opacity-0">
+            <h2 class="text-3xl md:text-6xl font-serif text-white leading-tight mb-8 quote-text translate-y-10 opacity-0">
                 "The mind is like water. When it is turbulent, it is difficult to see. When it is calm, everything becomes clear."
             </h2>
             <p class="text-satori-orange uppercase tracking-[0.2em] text-sm quote-text translate-y-10 opacity-0">— Lao Tzu</p>
@@ -381,12 +400,12 @@
     </section>
 
     <section id="visit" class="py-32 px-6 container mx-auto">
-        <div class="bg-satori-orange rounded-3xl p-12 md:p-24 shadow-2xl relative overflow-hidden">
+        <div class="bg-satori-orange rounded-3xl p-8 md:p-24 shadow-2xl relative overflow-hidden">
              <div class="absolute -right-20 -top-20 w-80 h-80 bg-white opacity-10 rounded-full blur-3xl"></div>
 
             <div class="flex flex-col md:flex-row gap-20 relative z-10">
                 <div class="md:w-1/2 text-white">
-                    <h2 class="text-5xl font-serif mb-8">Begin Your Journey</h2>
+                    <h2 class="text-4xl md:text-5xl font-serif mb-8">Begin Your Journey</h2>
                     <p class="text-white/80 mb-12 max-w-md text-lg font-serif">
                         Our gates are open to all seekers. Whether for an hour or a week, find your sanctuary here.
                     </p>
@@ -396,20 +415,20 @@
                             <i class="fas fa-map-marker-alt mt-1 opacity-60"></i>
                             <div>
                                 <span class="block text-xs font-bold uppercase tracking-widest text-white/60 mb-2">Location</span>
-                                <p class="text-xl font-serif">108 Mountain Path, Kyoto Prefecture</p>
+                                <p class="text-lg md:text-xl font-serif">108 Mountain Path, Kyoto Prefecture</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-6">
                             <i class="fas fa-envelope mt-1 opacity-60"></i>
                             <div>
                                 <span class="block text-xs font-bold uppercase tracking-widest text-white/60 mb-2">Inquiries</span>
-                                <p class="text-xl font-serif">peace@satori-temple.com</p>
+                                <p class="text-lg md:text-xl font-serif">peace@satori-temple.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="md:w-1/2 bg-white p-12 shadow-lg rounded-xl">
+                <div class="md:w-1/2 bg-white p-8 md:p-12 shadow-lg rounded-xl">
                     <form class="space-y-8">
                         <div class="relative group">
                             <input type="text" class="w-full bg-transparent border-b border-gray-300 py-4 focus:outline-none focus:border-satori-orange transition-colors text-satori-text placeholder-transparent" id="name" placeholder="Name">
@@ -451,6 +470,29 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
+        // --- Mobile Menu Logic ---
+        const openBtn = document.getElementById('open-menu-btn');
+        const closeBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        openBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+
+        // Close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
+        });
+
+        // --- Animations ---
         // 1. Hero Animations
         const tl = gsap.timeline();
         tl.to(".animate-up", { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out" })
